@@ -1,32 +1,32 @@
-type TaskStatus = "TODO" | "INPROGRESS" | "DONE";
+export type TaskStatus = "TODO" | "INPROGRESS" | "DONE";
 
-type SubTask = {
+export interface ISubTask {
     id: string;
     description: string;
     status: TaskStatus;
 }
 
-export type Task = {
+export interface ITask {
     id: string;
     title: string;
     description: string;
-    subtasks: SubTask[];
+    subtasks: ISubTask[];
     status: TaskStatus;
-    addSubtask(subtask: SubTask): SubTask[];
-    removeSubTask(id: string): SubTask;
-    editSubTask(SubTaskData: SubTask): SubTask;
+    addSubtask(subtask: ISubTask): ISubTask[];
+    removeSubTask(id: string): ISubTask;
+    editSubTask(subTaskData: ISubTask): ISubTask;
 };
 
-export type Board = {
+export interface IBoard {
     id: string;
-    tasks: Task[];
-    addTask(task: Task): Task[];
-    removeTask(id: string): Task;
-    editTask(taskData: Task): Task;
+    tasks: ITask[];
+    addTask(task: ITask): ITask[];
+    removeTask(id: string): ITask;
+    editTask(taskData: ITask): ITask;
 }
 
-export type StorageAPI = {
-    addBoard(board: Board): Board[];
-    deleteBoard(id: string): Board;
-    editBoard(boardData: Board): Board; 
+export interface IStorageAPI {
+    addBoard(board: IBoard): IBoard[];
+    deleteBoard(id: string): IBoard;
+    editBoard(boardData: IBoard): IBoard; 
 }
