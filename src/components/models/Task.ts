@@ -1,5 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
-import { type ITask, type ISubTask, type TaskStatus } from "../../types";
+import type { ITask, ISubTask, TaskStatus } from "../../types";
 
 export class Task implements ITask {
     id: string;

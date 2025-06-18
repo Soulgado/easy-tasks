@@ -19,6 +19,7 @@ export interface ITask {
 
 export interface IBoard {
     id: string;
+    title: string;
     tasks: ITask[];
     addTask(task: ITask): ITask[];
     removeTask(id: string): ITask;
